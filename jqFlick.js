@@ -46,9 +46,9 @@
       var currentPos = 1,
       cnt = r.query.count;
 
-      var caption = $('<span>',{
-        class: 'caption'
-      }).appendTo(flickrSlider);
+      var caption = $('<span>')
+        .addClass('caption')
+        .appendTo(flickrSlider);
 
       var ul = $('<ul>',{
         css:{
@@ -107,17 +107,15 @@
         currentPos = slide;
       });
 
-      var arrows = $('<div>',{
-        class: 'arrows'
-      });
+      var arrows = $('<div>').addClass('arrows');
 
       // Creating the previous / next arrows, and
       // binding event listeners for the click events:
 
-      var arrowPrev = $('<a>',{
-        class: 'previous',
-        href: '#',
-        click : function(){
+      var arrowPrev = $('<a>')
+        .addClass('previous')
+        .attr('href', '#')
+        .click(function(){
           var toShow = currentPos - 1;
           if(toShow < 1){
             toShow = cnt;
@@ -125,13 +123,13 @@
 
           flickrSlider.trigger('slide',[toShow]);
           return false;
-        }
-      }).appendTo(arrows);
+        })
+        .appendTo(arrows);
 
-      var arrowNext = $('<a>',{
-        class: 'next',
-        href: '#',
-        click : function(){
+      var arrowNext = $('<a>')
+        .addClass('next')
+        .attr('href', '#')
+        .click(function(){
           var toShow = currentPos + 1;
           if(toShow > cnt){
             toShow = 1;
@@ -139,8 +137,8 @@
 
           flickrSlider.trigger('slide',[toShow]);
           return false;
-        }
-      }).appendTo(arrows);
+        })
+        .appendTo(arrows);
 
       arrows.appendTo(flickrSlider);
 
